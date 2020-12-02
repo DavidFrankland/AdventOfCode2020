@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day1", "Day1\Day1.csproj", "{7D8177BF-DAC1-4BBF-BBE9-6797999989B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day1", "Day1\Day1.csproj", "{7D8177BF-DAC1-4BBF-BBE9-6797999989B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skeleton", "Skeleton\Skeleton.csproj", "{CCC3CE33-AB7C-41CD-8DA6-F3FF7AE54A84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7D8177BF-DAC1-4BBF-BBE9-6797999989B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D8177BF-DAC1-4BBF-BBE9-6797999989B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D8177BF-DAC1-4BBF-BBE9-6797999989B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCC3CE33-AB7C-41CD-8DA6-F3FF7AE54A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCC3CE33-AB7C-41CD-8DA6-F3FF7AE54A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCC3CE33-AB7C-41CD-8DA6-F3FF7AE54A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCC3CE33-AB7C-41CD-8DA6-F3FF7AE54A84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
