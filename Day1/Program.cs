@@ -1,53 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Utilities;
 
 namespace Day1
 {
-    class Program
+    internal class Program
     {
         private static void Main()
         {
-            var inputValues = File.ReadLines("input.txt").Select(x => Convert.ToInt32(x)).ToList();
+            var inputValues = File.ReadLines("input.txt").Select(x => x.ToInt()).ToArray();
 
-            Console.WriteLine(Part1(inputValues));
-            Console.WriteLine(Part2(inputValues));
+            Part1(inputValues);
+            Part2(inputValues);
         }
 
-        private static int Part1(List<int> inputValues)
+        private static void Part1(int[] inputValues)
         {
-            foreach (var inputValue1 in inputValues)
+            for (int i = 0; i < inputValues.Length; i++)
             {
-                foreach (var inputValue2 in inputValues)
+                for (int j = i; j < inputValues.Length; j++)
                 {
-                    if (inputValue1 + inputValue2 == 2020)
+                    if (inputValues[i] + inputValues[j] == 2020)
                     {
-                        return inputValue1 * inputValue2;
+                        Console.WriteLine(inputValues[i] * inputValues[j]);
+                        return;
                     }
                 }
             }
-
-            return 0;
         }
 
-        private static int Part2(List<int> inputValues)
+        private static void Part2(int[] inputValues)
         {
-            foreach (var inputValue1 in inputValues)
+            for (int i = 0; i < inputValues.Length; i++)
             {
-                foreach (var inputValue2 in inputValues)
+                for (int j = i; j < inputValues.Length; j++)
                 {
-                    foreach (var inputValue3 in inputValues)
+                    for (int k = j; k < inputValues.Length; k++)
                     {
-                        if (inputValue1 + inputValue2 + inputValue3 == 2020)
+                        if (inputValues[i] + inputValues[j] + inputValues[k] == 2020)
                         {
-                            return inputValue1 * inputValue2 * inputValue3;
+                            Console.WriteLine(inputValues[i] * inputValues[j] * inputValues[k]);
+                            return;
                         }
                     }
                 }
             }
-
-            return 0;
         }
     }
 }
