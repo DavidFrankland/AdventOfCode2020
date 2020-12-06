@@ -13,30 +13,42 @@ namespace Day4
         {
             var inputValues = File.ReadLines("input.txt").ToList();
 
-            Part1(inputValues, false);
-            Part1(inputValues, true);
+            var groups = inputValues.ToGroups();
+
+            var passports = GetPassports(groups);
+
+            Part1(passports);
+            Part2(passports);
         }
 
-        private static void Part1(List<string> inputValues, bool checkValues)
+        private static void Part1(List<List<string>> passports)
         {
-            int validPassports = 0;
-            var attributes = new List<string>();
+            int validPassports = passports.Count(passport => IsValidPassport(passport, false));
+            Console.WriteLine(validPassports);
+        }
 
-            foreach (var inputValue in inputValues)
+        private static void Part2(List<List<string>> passports)
+        {
+            int validPassports = passports.Count(passport => IsValidPassport(passport, true));
+            Console.WriteLine(validPassports);
+        }
+
+        private static List<List<string>> GetPassports(List<List<string>> groups)
+        {
+            var passports = new List<List<string>>();
+
+            foreach (var group in groups)
             {
-                if (inputValue == string.Empty)
+                var attributes = new List<string>();
+                foreach (var line in @group)
                 {
-                    if (IsValidPassport(attributes, checkValues)) validPassports++;
-                    attributes.Clear();
-                    continue;
+                    attributes.AddRange(line.Split(' '));
                 }
 
-                attributes.AddRange(inputValue.Split(' '));
+                passports.Add(attributes);
             }
 
-            if (IsValidPassport(attributes, checkValues)) validPassports++;
-
-            Console.WriteLine(validPassports);
+            return passports;
         }
 
         private static bool IsValidPassport(List<string> attributes, bool checkValues)

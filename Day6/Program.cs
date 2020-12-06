@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Utilities;
 
 namespace Day6
 {
@@ -11,33 +12,12 @@ namespace Day6
         {
             var inputValues = File.ReadLines("input.txt").ToList();
 
-            var groups = GetGroups(inputValues);
+            var groups = inputValues.ToGroups();
 
             Part1(groups);
             Part2(groups);
         }
 
-        private static List<List<string>> GetGroups(List<string> inputValues)
-        {
-            var groups = new List<List<string>>();
-            var group = new List<string>();
-
-            foreach (var inputValue in inputValues)
-            {
-                if (inputValue == string.Empty)
-                {
-                    groups.Add(group);
-                    group = new List<string>();
-                    continue;
-                }
-
-                group.Add(inputValue);
-            }
-
-            groups.Add(group);
-
-            return groups;
-        }
 
         private static void Part1(List<List<string>> groups)
         {
